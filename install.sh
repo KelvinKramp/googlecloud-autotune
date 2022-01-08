@@ -1,6 +1,7 @@
-# create directories
+# save profile local
 mkdir ~/myopenaps
 mkdir ~/myopenaps/settings
+python googlecloud-autotune/get_profile.py
 
 # install dependencies
 echo "STEP 1"
@@ -34,3 +35,6 @@ cd ~/src/oref0
 sudo apt-get install -y npm
 sudo npm run global-install
 cd ~/
+
+# run autotune
+oref0-autotune --dir=~/myopenaps  --ns-host=https://tig-diab.herokuapp.com --start-date=2021-12-30 
