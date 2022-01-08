@@ -1,3 +1,7 @@
+# create directories
+mkdir ~/myopenaps
+mkdir ~/myopenaps/settings
+
 # install dependencies
 echo "STEP 1"
 sudo apt-get -o Acquire::ForceIPv4=true install -y 
