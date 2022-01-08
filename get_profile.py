@@ -214,12 +214,12 @@ def ns_to_oaps(ns_profile):
     return sorted_profile
 
 
-print()
-
-def get_profile(nightscout, directory=os.pah.join(os.path.expanduser('~'), "/myopenaps/settings"), token=None):
+def get_profile(nightscout, directory=os.path.join(os.path.expanduser('~'), "/myopenaps/settings"), token=None):
     """
     Write profile in OpenAPS format to a directory
     """
+    print("creating profile files in directory")
+    print(directory)
     if nightscout.endswith("/"):
         nightscout = nightscout[:-1]
     profile = ns_to_oaps(get_current_profile(nightscout, token))
@@ -228,7 +228,8 @@ def get_profile(nightscout, directory=os.pah.join(os.path.expanduser('~'), "/myo
         try:
             os.makedirs(directory)
         except Exception as e:
-            sys.exit(("Following error occured during making of directory " + directory), e)
+            print(e)
+            sys.exit("Above error occured during making of directory")
     for profile_file in PROFILE_FILES:
         with open(os.path.join(directory, profile_file), 'w') as f:
             f.write(json.dumps(profile, indent=4))
@@ -236,4 +237,4 @@ def get_profile(nightscout, directory=os.pah.join(os.path.expanduser('~'), "/myo
 
 if __name__ == "__main__":
     # test
-    get_profile("https://yournightscouturl.herokuapp.com/")
+    get_profile("https://tig-diab.herokuapp.com/")
