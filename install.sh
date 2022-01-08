@@ -28,5 +28,5 @@ cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && 
 echo "STEP 12"
 cd ~/src/oref0
 sudo apt-get install -y npm
-npm run global-install
+sudo npm run global-install
 cd ~/
